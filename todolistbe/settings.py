@@ -137,3 +137,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Add the Render app's domain to ALLOWED_HOSTS
+ALLOWED_HOSTS = ['todo-list-api-n2mw.onrender.com']
