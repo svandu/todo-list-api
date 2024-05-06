@@ -45,7 +45,7 @@ class TodoListView(APIView):
             return Response(response_data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk):
+    def delete(self, request, id):
         try:
             todo_list = TodoList.objects.get(pk=id)
             todo_list.delete()
@@ -57,7 +57,7 @@ class TodoListView(APIView):
         except TodoList.DoesNotExist:
             return Response({'message': 'Todo List not found'}, status=status.HTTP_404_NOT_FOUND)
 
-    def put(self, request, pk):
+    def put(self, request, id):
         try:
             todo_list = TodoList.objects.get(pk=id)
             serializer = TodoListSerializer(todo_list, data=request.data)
