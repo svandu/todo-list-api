@@ -4,7 +4,9 @@ The TodoList API provides a comprehensive set of endpoints for managing tasks an
 
 ## Table of Contents
 
+- [Features](#features)
 - [Installation](#installation)
+- [Schema Design](#schema-design)
 - [API Documentation](#api-documentation)
     - [TodoList](#todolist)
     - [Task](#task)
@@ -41,6 +43,10 @@ The TodoList API provides a comprehensive set of endpoints for managing tasks an
 
     ```bash
     python manage.py runserver
+
+## Schema Design
+
+![schema design](image.png)
 
 ## API Documentation
 
