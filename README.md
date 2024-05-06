@@ -6,6 +6,9 @@ The TodoList API provides a comprehensive set of endpoints for managing tasks an
 
 - [Installation](#installation)
 - [API Documentation](#api-documentation)
+    - [TodoList](#todolist)
+    - [Task](#task)
+
 
 ## Installation
 
@@ -32,6 +35,8 @@ The TodoList API provides a comprehensive set of endpoints for managing tasks an
 
 ## API Documentation
 
+## TodoList
+
 ### Create todolist.
 
 `POST`  `https://todo-list-api-n2mw.onrender.com/api/v1/todolist/`
@@ -46,7 +51,7 @@ Creates a new todolist.
 
 **Response**
 
-```javascript
+```json
 {
     "message": "Success",
     "data": {
@@ -64,7 +69,7 @@ Getting all todolist
 
 **Response**
 
-```javascript
+```json
 {
     "message": "Success",
     "data": [
@@ -93,7 +98,7 @@ Updating todo list
 
 **Payload**
 
-```javascript
+```json
 {
     "name": "updated todolist"
 }
@@ -101,7 +106,7 @@ Updating todo list
 
 **Response**
 
-```javascript
+```json
 {
     "message": "Success",
     "data": {
@@ -120,7 +125,7 @@ Deleting todo list
 
 **Response**
 
-```javascript
+```json
 {
     "message": "Success",
     "data": {}
@@ -133,6 +138,7 @@ Deleting todo list
  
 **Response**
 
+``` json
 {
     "message": "Success",
     "data": {
@@ -141,3 +147,134 @@ Deleting todo list
     }
 }
 ```
+
+## Task
+
+### Create task.
+
+`POST` `https://todo-list-api-n2mw.onrender.com/api/v1/task/`
+
+Creates a new task.
+
+**Request Body**
+
+| Name | Type |
+| -----| -------|
+| todo_list | id |
+| task | string |
+| completed | boolean |
+
+**Response**
+
+```json
+{
+    "message": "Success",
+    "data": {
+        "id": 6,
+        "task": "third task for my 2nd todolist",
+        "completed": false,
+        "todo_list": 3
+    }
+}
+```
+
+### Get All Tasks
+
+Getting all tasks
+
+`GET` `https://todo-list-api-n2mw.onrender.com/api/v1/task/`
+
+**Response**
+
+```json
+{
+    "message": "Success",
+    "data": [
+        {
+            "id": 4,
+            "task": "third task for my 2nd todolist",
+            "completed": false,
+            "todo_list": 3
+        },
+        {
+            "id": 5,
+            "task": "third task for my 2nd todolist",
+            "completed": false,
+            "todo_list": 3
+        },
+    ]
+}
+```
+
+### Updating todolist
+
+`PUT` `https://todo-list-api-n2mw.onrender.com/api/v1/task/4/`
+
+Updating task
+
+
+**Payload**
+
+```json
+{
+    "todo_list": 3,
+    "task": "this is new updated task",
+    "completed": true
+}
+```
+
+**Response**
+
+```json
+{
+    "message": "Success",
+    "data": {
+        "id": 4,
+        "task": "this is new updated task",
+        "completed": true,
+        "todo_list": 3
+    }
+}
+```
+
+### Deleting task
+
+`DELETE` `https://todo-list-api-n2mw.onrender.com/api/v1/task/4/`
+
+Deleting task
+
+**Response**
+
+```json
+{
+    "message": "Success",
+    "data": {}
+}
+```
+
+### Task By Todolist Id
+
+`GET` `https://todo-list-api-n2mw.onrender.com/api/v1/task/3/`
+ 
+**Response**
+
+``` json
+{
+    "message": "Success",
+    "data": [
+        {
+            "id": 5,
+            "task": "third task for my 2nd todolist",
+            "completed": false,
+            "todo_list": 3
+        },
+        {
+            "id": 6,
+            "task": "third task for my 2nd todolist",
+            "completed": false,
+            "todo_list": 3
+        }
+    ]
+}
+```
+
