@@ -48,6 +48,22 @@ The TodoList API provides a comprehensive set of endpoints for managing tasks an
 
 ![schema design](image.png)
 
+## Tech Stack
+
+### Languages
+
+![Python](https://img.shields.io/badge/python-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white)
+
+### Backend
+
+![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
+![Django REST Framework](https://img.shields.io/badge/djangorestframework-%23092E20.svg?style=for-the-badge&logo=drf&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+
+### Deployment
+
+[![Render](https://img.shields.io/badge/render-%2337D9A3.svg?style=for-the-badge&logo=render&logoColor=white)](https://render.com)
+
 ## API Documentation
 
 ## TodoList
