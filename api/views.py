@@ -156,8 +156,10 @@ class RegisterView(APIView):
             # Prepare response data
             response_data = {
                 'message': 'User registered successfully',
-                'data': UserSerializer(user).data,
-                'token': token
+                'data': {
+                    **UserSerializer(user).data,
+                    'token': token,
+                }
             }
 
             return Response(response_data, status=status.HTTP_200_OK)
@@ -178,10 +180,16 @@ class LoginView(APIView):
                 refresh = RefreshToken.for_user(user)
                 token = str(refresh.access_token)
             
+                # Serialize user data
+                user_data = UserSerializer(user).data
+
                 # Prepare response data with token
                 response_data = {
                     'message': 'Login successful',
-                    'token': token
+                    'data': {
+                        **user_data,
+                        'token': token
+                    }
                 }
                 return Response(response_data, status=status.HTTP_200_OK)
             else:
