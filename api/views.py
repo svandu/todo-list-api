@@ -9,14 +9,15 @@ from .serializers import TodoListSerializer, TaskSerializer, UserSerializer, Use
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login , logout
+from django.contrib.auth.models import User
 
 # Create your views here.
 class TodoListView(APIView):
-    def get(self, request, pk=None):
-        if pk:
+    def get(self, request, id=None):
+        if id:
             try:
-                todo_list = TodoList.objects.get(pk=pk)
-                serializer = TodoListSerializer(todo_list)
+                todo_list = TodoList.objects.filter(user=id)
+                serializer = TodoListSerializer(todo_list, many=True)
                 response_data = {
                     'message': 'Success',
                     'data': serializer.data
@@ -46,7 +47,7 @@ class TodoListView(APIView):
 
     def delete(self, request, pk):
         try:
-            todo_list = TodoList.objects.get(pk=pk)
+            todo_list = TodoList.objects.get(pk=id)
             todo_list.delete()
             response_data = {
                 'message': 'Success',
@@ -58,7 +59,7 @@ class TodoListView(APIView):
 
     def put(self, request, pk):
         try:
-            todo_list = TodoList.objects.get(pk=pk)
+            todo_list = TodoList.objects.get(pk=id)
             serializer = TodoListSerializer(todo_list, data=request.data)
             if serializer.is_valid():
                 serializer.save()
